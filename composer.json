@@ -1,0 +1,22 @@
+{
+    "name": "plusser/yii2-id2-auth",
+    "description": "...",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension","id2","auth"],
+    "license": "GPL-3.0+",
+    "authors": [
+        {
+            "name": "plusser",
+            "email": "plusser@yandex.ru"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*",
+        "plusser/yii2-settings": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "id2Auth\\": ""
+        }
+    }
+}

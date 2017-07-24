@@ -1,0 +1,32 @@
+.paywall-reg-button > span {
+    display: inline-block !important;
+    overflow: hidden !important;
+    text-overflow: clip !important;
+    white-space: nowrap !important;
+    max-width: 180px !important;
+    margin: 0px 10px !important;
+    text-align: center !important;
+}
+
+.popup-container {
+    /*display: none;*/
+    z-index: 99998;
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background: rgba(0, 0, 0, 0.85);
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+}
+
+.popup-container-content {
+    position: relative;
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+    margin: 200px auto;
+    width: 640px;
+}
