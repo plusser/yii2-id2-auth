@@ -16,6 +16,9 @@ $this->registerJs(
         'loginUrl' => Yii::$app->urlManager->createUrl([$M->id . '/auth/login']),
         'logoutUrl' => Yii::$app->urlManager->createUrl([$M->id . '/auth/logout']),
         'customUrl' => Yii::$app->urlManager->createUrl([$M->id . '/auth/custom']),
+        'id2Auth' => is_null($id2Auth) ? 'id2Auth' : $id2Auth,
+        'id2NoAuth' => is_null($id2NoAuth) ? 'id2NoAuth' : $id2NoAuth,
+        'id2Custom' => is_null($id2Custom) ? 'id2Custom' : $id2Custom,
     ]) . ';',
     static::POS_HEAD,
     'id2Config'
