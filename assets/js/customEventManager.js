@@ -1,6 +1,7 @@
 var customEventManager = {
-    container:[],
     active: false,
+    afterSend: false,
+    container:[],
     add: function(eventKey, eventValue){
         customEventManager.container[customEventManager.container.length] = {
             key: eventKey,
@@ -19,6 +20,10 @@ var customEventManager = {
 
             customEventManager.container = [];
             customEventManager.active = false;
+
+            if(typeof(customEventManager.afterSend) == 'function'){
+                customEventManager.afterSend();
+            }
         }
     },
     ready: function(){
