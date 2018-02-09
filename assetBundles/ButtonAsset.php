@@ -13,4 +13,7 @@ class ButtonAsset extends BaseAsset
         'position' => \yii\web\View::POS_END,
     ];
 
+    public $depends = [
+        'id2Auth\assetBundles\CustomAsset',
+    ];
 }
