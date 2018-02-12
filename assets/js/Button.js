@@ -21,9 +21,9 @@ window.AsyncInit = function (){
         lang: 'ru',
     });
 
-    aktionid.subscribe('status.auth', 'id2Auth');
-    aktionid.subscribe("status.noauth", "id2NoAuth");
-    aktionid.subscribe("user.custom", "id2Custom");
+    aktionid.subscribe('status.auth', id2AuthConfig.id2Auth);
+    aktionid.subscribe('status.noauth', id2AuthConfig.id2NoAuth);
+    aktionid.subscribe('user.custom', id2AuthConfig.id2Custom);
 };
 
 function id2Auth(data){
