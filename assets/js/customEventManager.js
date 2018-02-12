@@ -19,12 +19,12 @@ var customEventManager = {
                 console.log({k:customEventManager.container[index].key, v: customEventManager.container[index].value});
             }
 
+            if(typeof(customEventManager.afterSend) == 'function'){
+                customEventManager.afterSend(customEventManager.container);
+            }
+
             customEventManager.container = [];
             customEventManager.active = false;
-
-            if(typeof(customEventManager.afterSend) == 'function'){
-                customEventManager.afterSend();
-            }
         }
     },
     ready: function(){
