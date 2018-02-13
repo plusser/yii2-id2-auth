@@ -110,9 +110,22 @@ class Module extends \yii\base\Module
         ] as $paramName => $handler){
             if(!is_null($param = Yii::$app->request->getQueryParam($paramName))){
                 $handler($param);
-                Yii::$app->response->redirect(str_replace('?' . Yii::$app->request->queryString, '', Yii::$app->request->url), 301);
+                Yii::$app->response->redirect($this->clearUrl, 301);
                 Yii::$app->end();
             }
         }
+    }
+
+    protected function getClearUrl()
+    {
+        $params = [];
+
+        foreach(Yii::$app->request->queryParams as $k => $v){
+            if(!in_array($k, ['token', 'ttl', 'activityId'])){
+                $params[] = $k . '=' . $v;
+            }
+        }
+
+        return str_replace(Yii::$app->request->queryString, implode('&', $params), Yii::$app->request->url);
     }
 }
