@@ -118,14 +118,10 @@ class Module extends \yii\base\Module
 
     protected function getClearUrl()
     {
-        $params = [];
-
-        foreach(Yii::$app->request->queryParams as $k => $v){
-            if(!in_array($k, ['token', 'ttl', 'activityId'])){
-                $params[] = $k . '=' . $v;
-            }
-        }
-
-        return str_replace(Yii::$app->request->queryString, implode('&', $params), Yii::$app->request->url);
+        return Yii::$app->urlManager->createUrl([Yii::$app->controller->route] + array_diff_key(Yii::$app->request->queryParams, array_fill_keys([
+            'token',
+            'ttl',
+            'activityId',
+        ], TRUE)));
     }
 }
