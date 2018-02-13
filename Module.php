@@ -73,15 +73,9 @@ class Module extends \yii\base\Module
 
         $params['sig'] = md5(md5(strtolower($paramsString) . $this->appId) . $this->secureKey);
 
-        $urlParams = [];
-
-        foreach($params as $k => $v){
-            $urlParams[] = $k . '=' . $v;
-        }
-
         return json_decode(json_encode([
             'params' => $params,
-            'urlParams' => implode('&', $urlParams),
+            'urlParams' => http_build_query($params),
         ]));
     }
 
